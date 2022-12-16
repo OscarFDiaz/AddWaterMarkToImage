@@ -264,6 +264,31 @@
 	transition: none;
 }
 
+.green_button {
+	background-image: radial-gradient(100% 100% at 100% 0, #5aff15 0, #03b912 100%);
+}
+
+.green_button:focus {
+	box-shadow: #03b912 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #03b912 0 -3px 0 inset;
+}
+
+.green_button:hover {
+	box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #5aff15 0 -3px 0 inset;
+	transform: translateY(-2px);
+}
+
+.pink_button {
+	background-image: radial-gradient(100% 100% at 100% 0, #5f0a87, #a4508b 100%)
+}
+
+.pink_button:focus {
+	box-shadow: #a4508b 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #a4508b 0 -3px 0 inset;
+}
+
+.pink_button:hover {
+	box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #5f0a87 0 -3px 0 inset;
+	transform: translateY(-2px);
+}
 
 @media screen and (max-width: 700px) {
 /* Reglas de estilo para pantallas menores a 400px */
