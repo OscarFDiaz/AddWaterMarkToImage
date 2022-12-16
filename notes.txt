@@ -1,0 +1,104 @@
+function imagesLoaded() {
+  // Obtiene el elemento input
+  const inputElement = document.querySelector('input[type="file"]');
+
+  // Obtiene el arreglo de imágenes seleccionadas por el usuario
+  const images = inputElement.files;
+
+  // Itera sobre las imágenes y procesa cada una de ellas
+  for (const image of images) {
+    // Procesa la imagen
+    console.log(image);
+  }
+}
+
+function addWaterMark() {
+  let inputImages = ['GalletasNuevas/1.jpg', 'GalletasNuevas/2.jpg', 'GalletasNuevas/3.jpg'];
+
+  let outputImages = [];
+
+  let defer = $.Deferred();
+  $.when(defer).done(function () {
+    for (let i = 0; i < outputImages.length; i++) {
+      let img = document.createElement('img');
+      img.className = 'imageTag';
+      img.src = `${outputImages[i]}`;
+      let src = document.getElementById('images');
+      src.appendChild(img);
+    }
+    console.log(outputImages);
+
+    const boton = document.getElementById('button_download');
+
+    boton.addEventListener('click', () => {
+      // Código para descargar imágenes
+      // Obtener todas las imágenes en la página
+      //const imagenes = document.querySelectorAll('img');
+
+      // Crear un elemento "a"
+      const link = document.createElement('a');
+
+      // Iterar sobre cada imagen
+      outputImages.forEach((imagen, index) => {
+        // Establecer la URL de la imagen como el enlace del elemento "a"
+        link.href = imagen;
+
+        // Establecer el nombre del archivo con la extensión JPEG
+        link.download = `imagen-${index}.jpg`;
+
+        // Simular un clic en el elemento "a"
+        link.click();
+      });
+    });
+
+    // boton.addEventListener('click', () => {
+    //   // Código para descargar imágenes
+    //   // Obtener todas las imágenes en la página
+    //   const imagenes = document.querySelectorAll('img');
+
+    //   // Crear un elemento "a"
+    //   const link = document.createElement('a');
+
+    //   // Iterar sobre cada imagen
+    //   imagenes.forEach((imagen, index) => {
+    //     // Establecer la URL de la imagen como el enlace del elemento "a"
+    //     link.href = imagen.src;
+
+    //     // Establecer el nombre del archivo con la extensión JPEG
+    //     link.download = `imagen-${index}.jpg`;
+
+    //     // Simular un clic en el elemento "a"
+    //     link.click();
+    //   });
+    // });
+
+    /*
+          // Descarga de las imagenes
+          // Primero, necesitamos obtener todas las etiquetas <img> de la página
+          let imgTags = document.getElementsByTagName('img');
+
+          // Luego, recorremos cada una de las etiquetas <img> y creamos un enlace
+          // con el atributo "download" para descargar la imagen en formato .jpg
+          for (let i = 0; i < imgTags.length; i++) {
+            let img = imgTags[i];
+            let imgUrl = img.src;
+            let a = document.createElement('a');
+            a.href = imgUrl;
+            a.download = 'image_' + i + '.jpg';
+            a.click();
+          }*/
+  });
+
+  $.each(inputImages, function (i, v) {
+    $('<img>', {
+      src: v,
+    }).watermark({
+      done: function (imgURL) {
+        outputImages[i] = imgURL;
+        if (i + 1 === inputImages.length) {
+          defer.resolve();
+        }
+      },
+    });
+  });
+}

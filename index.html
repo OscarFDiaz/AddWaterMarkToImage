@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <META NAME="viewport" CONTENT="width=device-width, height=device-height, initial-scale=1, user-scalable=no"/>
+    <title>Add watermark to Images</title>
+
+    <!-- ONLINE SCRIPTS jQuery 1.5+ + Watermark-->
+    <!-- 
+      <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+      <script src="https://unpkg.com/watermark@1.0.2/dist/jquery.watermark.min.js" type="text/javascript"></script> 
+    -->
+
+    <!-- LOCAL SCRIPTS jQuery plugin Watermark -->
+    <!-- Without relative path isnt working-->
+    <script src="node_modules\jquery\dist\jquery.js" type="text/javascript"></script>
+    <script src="node_modules\watermark\dist\jquery.watermark.js" type="text/javascript"></script>
+
+    <script src="/index.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/loader.css" />
+
+  <body>
+    <div id="loader_container" class="loader_container">
+      <div id="loader"></div>
+    </div>
+
+    <div class="container">
+      <div class="sticky_div">
+        <!-- CARGAR MARCA DE AGUA -->
+        <input id="input_watermark" type="file" hidden onchange="loadWaterMark()" />
+        <input id="button_watermark" type="button" class="button_download" value="Selecciona marca de agua"/>
+
+        <!-- CARGAR IMAGENES -->
+        <input id="input_images" type="file" hidden multiple onchange="imagesLoaded()" />
+        <input id="button_launcher" type="button" class="button_download" value="Selecciona imagenes a subir"/>
+
+        <!-- DESCARGAR IMAGENES -->
+        <button id="button_add" class="button_download" onclick="addWaterMark()" disabled="disabled">Añadir marca</button>
+        <button id="button_download" class="button_download" disabled="disabled">Descargar Imagenes</button>
+        
+        <!-- PROPIEDADES DE LA MARCA DE AGUA -->
+        <div class="gravity_container">
+          Posición de la marca
+          <br>
+          <select name="gravity" id="gravity" class="gravity_selector">
+            <option value="nw">Arriba derecha</option>
+            <option value="n">Arriba centro</option>
+            <option value="ne">Arriba izquierda</option>
+            <option value="w">Derecha centro</option>
+            <option value="e">Izquierda centro</option>
+            <option value="sw">Abajo Izquierda</option>
+            <option value="s">Abajo Centro</option>
+            <option value="se" selected="">Abajo derecha</option>
+            <option value="c">Centro</option>
+          </select>
+        </div>
+
+        <div class="margin_container">
+          Margen de la posición
+          <br>
+          <input type="number" value="10" id="margin" name="margin" class="margin_input">
+        </div>
+
+        <div class="opacity_container">
+          Opacidad
+          <br>
+          <input type="number" value="0.7" min="0" max="1" step="0.1" id="opacity" name="opacity" class="opacity_input">
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MARCA DE AGUA -->
+    <div id="watermark" class="image_watermark"></div>
+    <!-- IMAGENES QUE SE MUESTRAN -->
+    <div class="images" id="images"></div>
+
+    <script>
+      document.getElementById('button_launcher').addEventListener('click', openDialog);
+      document.getElementById('button_watermark').addEventListener('click', openDialog2);
+
+      function openDialog() {
+        document.getElementById('input_images').click();
+      }
+
+      function openDialog2() {
+        document.getElementById('input_watermark').click();
+      }
+    </script>
+  </body>
+</html>
+
