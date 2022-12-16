@@ -79,10 +79,11 @@
       <div class="buttons_container" id="buttons_container">
         <!-- CARGAR IMAGENES -->
         <input id="input_images" type="file" hidden multiple onchange="imagesLoaded()" />
-        <input id="button_launcher" type="button" class="button_download" value="Selecciona imagenes a subir"/>
-
+        <input id="button_launcher" type="button" class="button" value="Selecciona imagenes a subir"/>
+        
+        <!-- AÑADIR MARCA DE AGUA -->
+        <button id="button_add" class="button" onclick="addWaterMark()" disabled="disabled">Añadir marca</button>
         <!-- DESCARGAR IMAGENES -->
-        <button id="button_add" class="button_download" onclick="addWaterMark()" disabled="disabled">Añadir marca</button>
         <button id="button_download" class="button_download" disabled="disabled">Descargar Imagenes</button>
       </div>
     </div>

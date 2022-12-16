@@ -14,6 +14,7 @@ function loadWaterMark() {
   img.style.cssText = 'grid-column: 0;';
 
   let src = document.getElementById('watermark');
+  src.innerHTML = '';
   src.appendChild(img);
 }
 
