@@ -1,29 +1,20 @@
 function loadWaterMark() {
-  console.log('LOADWATERMARK');
   // Obtiene el elemento input
   const inputElement = document.getElementById('input_watermark');
 
-  // Obtiene el arreglo de imágenes seleccionadas por el usuario
-  const images = inputElement.files;
+  let pathWater = document.getElementById('input_watermark').value;
+
+  if (pathWater == '' || pathWater == null) {
+    pathWater = 'https://i.imgur.com/EtVXy17.png';
+  }
+
+  let img = document.createElement('img');
+  img.classList.add('imageTag');
+  img.src = pathWater;
+  img.style.cssText = 'grid-column: 0;';
 
   let src = document.getElementById('watermark');
-  let imgData = [];
-
-  for (let i = 0; i < images.length; i++) {
-    const file = images[i];
-    let img = document.createElement('img');
-    img.classList.add('imageTag');
-    img.file = file;
-    img.style.cssText = 'grid-column: 0;';
-    src.appendChild(img); // Assuming that "preview" is the div output where the content will be displayed.
-
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      img.src = e.target.result;
-      imgData.push(img.src);
-    };
-    reader.readAsDataURL(file);
-  }
+  src.appendChild(img);
 }
 
 function imagesLoaded() {
@@ -74,6 +65,12 @@ function addWaterMark(inputImages) {
   const opacity = document.getElementById('opacity').value;
   const margin = document.getElementById('margin').value;
 
+  let pathWater = document.getElementById('input_watermark').value;
+
+  if (pathWater == '' || pathWater == null) {
+    pathWater = 'https://i.imgur.com/EtVXy17.png';
+  }
+
   let outputImages = [];
 
   // Cuando se procesan las imagenes:
@@ -115,6 +112,7 @@ function addWaterMark(inputImages) {
     $('<img>', {
       src: v,
     }).watermark({
+      path: pathWater,
       gravity: gravity,
       opacity: opacity,
       margin: margin,

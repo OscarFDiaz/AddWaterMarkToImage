@@ -29,20 +29,23 @@
       <div id="loader"></div>
     </div>
 
-    <div class="container">
-      <div class="sticky_div">
+    <div class="sticky_div" id="sticky_div">
+
+      <div class="mark_elements">
         <!-- CARGAR MARCA DE AGUA -->
-        <input id="input_watermark" type="file" hidden onchange="loadWaterMark()" />
-        <input id="button_watermark" type="button" class="button_download" value="Selecciona marca de agua"/>
+        <div class="mark_container">
+          Marca de agua
+          <br>
+          <input id="input_watermark" 
+            type="url" 
+            placeholder="Ej. https://i.imgur.com/EtVXy17.png"
+            onchange="loadWaterMark()"
+            class="mark_input" 
+          />
+        </div>
 
-        <!-- CARGAR IMAGENES -->
-        <input id="input_images" type="file" hidden multiple onchange="imagesLoaded()" />
-        <input id="button_launcher" type="button" class="button_download" value="Selecciona imagenes a subir"/>
+        <br>
 
-        <!-- DESCARGAR IMAGENES -->
-        <button id="button_add" class="button_download" onclick="addWaterMark()" disabled="disabled">Añadir marca</button>
-        <button id="button_download" class="button_download" disabled="disabled">Descargar Imagenes</button>
-        
         <!-- PROPIEDADES DE LA MARCA DE AGUA -->
         <div class="gravity_container">
           Posición de la marca
@@ -71,7 +74,16 @@
           <br>
           <input type="number" value="0.7" min="0" max="1" step="0.1" id="opacity" name="opacity" class="opacity_input">
         </div>
+      </div>
 
+      <div class="buttons_container" id="buttons_container">
+        <!-- CARGAR IMAGENES -->
+        <input id="input_images" type="file" hidden multiple onchange="imagesLoaded()" />
+        <input id="button_launcher" type="button" class="button_download" value="Selecciona imagenes a subir"/>
+
+        <!-- DESCARGAR IMAGENES -->
+        <button id="button_add" class="button_download" onclick="addWaterMark()" disabled="disabled">Añadir marca</button>
+        <button id="button_download" class="button_download" disabled="disabled">Descargar Imagenes</button>
       </div>
     </div>
 
@@ -82,15 +94,30 @@
 
     <script>
       document.getElementById('button_launcher').addEventListener('click', openDialog);
-      document.getElementById('button_watermark').addEventListener('click', openDialog2);
-
       function openDialog() {
         document.getElementById('input_images').click();
       }
 
-      function openDialog2() {
-        document.getElementById('input_watermark').click();
+      // Obtener el alto del div fijo
+      let fixedDiv = document.getElementById("sticky_div");
+      let fixedDivHeight = fixedDiv.offsetHeight;
+
+      // Aplicar el alto del div fijo como padding al div debajo
+      let belowDiv = document.getElementById("watermark");
+      belowDiv.style.paddingTop = fixedDivHeight + 16 + "px";
+
+      window.addEventListener("resize", function() {
+      // Obtener el nuevo alto del div fijo
+      let newFixedDivHeight = fixedDiv.offsetHeight;
+
+      // Si el alto ha cambiado, aplicar el nuevo alto como padding al div debajo
+      if (newFixedDivHeight !== fixedDivHeight) {
+        fixedDivHeight = newFixedDivHeight;
+        belowDiv.style.paddingTop = fixedDivHeight + 16 + "px";
       }
+    });
+
+      loadWaterMark();
     </script>
   </body>
 </html>

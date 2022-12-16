@@ -96,9 +96,12 @@
 
 .sticky_div {
 	position: fixed;
-    top: 30px;
-    left: 30px;
 	background-color: #2c2c2c;
+    border-bottom-color: #151515;
+    color: #f0f0f0;
+    height: auto;
+	padding: 32px;
+    width: 100%;
 }
 
 .container {
@@ -128,9 +131,16 @@
 	display: inline-block;
 	background-color: #2c2c2c;  
 	font-size: 18px;
+	margin-top: 16px;
 }
 
 .margin_container {
+	display: inline-block;
+	background-color: #2c2c2c;  
+	font-size: 18px;
+}
+
+.mark_container {
 	display: inline-block;
 	background-color: #2c2c2c;  
 	font-size: 18px;
@@ -168,5 +178,31 @@
     border: none;
     background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
     box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+}
+
+.mark_input {
+	font-size: 18px;
+    height: 32px;
+	width: 500px;
+    padding: 8px 16px;
+	margin-right: 32px;
+    background-color: #222222;
+    color: white;
+    border-radius: 5px;
+    border: none;
+	background-color: #222222;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+	border: 2px solid #5adaff;
+}
+
+.mark_elements {
+	display: inline-block;
+	background: none;
+}
+
+.buttons_container {
+	padding-top: 32px;
+	display: inline-block;
+	background: none;
 }
 
