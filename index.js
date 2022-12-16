@@ -128,18 +128,43 @@ function addWaterMark(inputImages) {
 }
 
 function dowloadImages(outputImages) {
-  // Crear un elemento "a"
-  const link = document.createElement('a');
+  document.getElementById('loader_container').style.display = 'block';
 
-  // Iterar sobre cada imagen
+  let zip = new JSZip();
   outputImages.forEach((imagen, index) => {
-    // Establecer la URL de la imagen como el enlace del elemento "a"
-    link.href = imagen;
+    // Elimino lo innecesario de la base64 para que jsZip no lo tome como un dataURL
+    let uri = imagen;
+    let idx = uri.indexOf('base64,') + 'base64,'.length;
+    let content = uri.substring(idx);
 
-    // Establecer el nombre del archivo con la extensión JPEG
-    link.download = `imagen-${index}.jpg`;
-
-    // Simular un clic en el elemento "a"
-    link.click();
+    zip.file(`imagen-${index}.jpg`, content, { base64: true });
   });
+
+  zip.generateAsync({ type: 'blob' }).then(function (zip) {
+    saveAs(zip, 'images.zip');
+    document.getElementById('loader_container').style.display = 'none';
+    resetGrids();
+  });
+}
+
+function resetGrids() {
+  document.getElementById('images').innerHTML = '';
+
+  const button = document.getElementById('button_download');
+  let disabled = button.getAttribute('disabled');
+
+  if (disabled) {
+    button.removeAttribute('disabled');
+  } else {
+    button.setAttribute('disabled', 'disabled');
+  }
+
+  const button2 = document.getElementById('button_add');
+  let disabled2 = button2.getAttribute('disabled');
+
+  if (disabled2) {
+    button2.removeAttribute('disabled');
+  } else {
+    button2.setAttribute('disabled', 'disabled');
+  }
 }

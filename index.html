@@ -7,16 +7,20 @@
     <META NAME="viewport" CONTENT="width=device-width, height=device-height, initial-scale=1, user-scalable=no"/>
     <title>Add watermark to Images</title>
 
-    <!-- ONLINE SCRIPTS jQuery 1.5+ + Watermark-->
+    <!-- ONLINE SCRIPTS jQuery 1.5+ + Watermark
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://unpkg.com/watermark@1.0.2/dist/jquery.watermark.min.js" type="text/javascript"></script> 
-    
+    -->
+
     <!-- LOCAL SCRIPTS jQuery plugin Watermark -->
     <!-- Without relative path isnt working-->
-    <!-- 
-      <script src="node_modules\jquery\dist\jquery.js" type="text/javascript"></script>
-      <script src="node_modules\watermark\dist\jquery.watermark.js" type="text/javascript"></script>
-    -->
+    
+    <script src="./jquery.js" type="text/javascript"></script>
+    <script src="./jquery.watermark.js" type="text/javascript"></script>
+    
+    <!-- COMPRESOR DE ARCHIVOS -->
+    <script type="text/javascript" src="./jszip.js"></script>
+    <script type="text/javascript" src="./FileSaver.js"></script>
 
     <script src="./index.js" type="text/javascript"></script>
 
@@ -108,15 +112,15 @@
       belowDiv.style.paddingTop = fixedDivHeight + 16 + "px";
 
       window.addEventListener("resize", function() {
-      // Obtener el nuevo alto del div fijo
-      let newFixedDivHeight = fixedDiv.offsetHeight;
+        // Obtener el nuevo alto del div fijo
+        let newFixedDivHeight = fixedDiv.offsetHeight;
 
-      // Si el alto ha cambiado, aplicar el nuevo alto como padding al div debajo
-      if (newFixedDivHeight !== fixedDivHeight) {
-        fixedDivHeight = newFixedDivHeight;
-        belowDiv.style.paddingTop = fixedDivHeight + 16 + "px";
-      }
-    });
+        // Si el alto ha cambiado, aplicar el nuevo alto como padding al div debajo
+        if (newFixedDivHeight !== fixedDivHeight) {
+          fixedDivHeight = newFixedDivHeight;
+          belowDiv.style.paddingTop = fixedDivHeight + 16 + "px";
+        }
+      });
 
       loadWaterMark();
     </script>
