@@ -1,0 +1,155 @@
+.button {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+    rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'JetBrains Mono', monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+  margin-right: 32px;
+}
+
+.button:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+    #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.button:disabled {
+  background-color: dimgrey;
+  background-image: radial-gradient(100% 100% at 100% 0, #383838 0, #727272 100%);
+  box-shadow: #4c4c4c 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #727272 0 -3px 0 inset;
+  color: linen;
+  opacity: 1;
+  cursor: not-allowed;
+  transition: none;
+}
+
+.buttons_container {
+  padding-top: 32px;
+  display: inline-block;
+  background: none;
+}
+
+.button_download {
+  align-items: center;
+  appearance: none;
+  background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+    rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'JetBrains Mono', monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+  margin-right: 32px;
+}
+
+.button_download:focus {
+  box-shadow: #f34079 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #fc894d 0 -3px 0 inset;
+}
+
+.button_download:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+    #f34079 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button_download:active {
+  box-shadow: #f34079 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.button_download:disabled {
+  background-color: dimgrey;
+  background-image: radial-gradient(100% 100% at 100% 0, #383838 0, #727272 100%);
+  box-shadow: #4c4c4c 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #727272 0 -3px 0 inset;
+  color: linen;
+  opacity: 1;
+  cursor: not-allowed;
+  transition: none;
+}
+
+.green_button {
+  background-image: radial-gradient(100% 100% at 100% 0, #5aff15 0, #03b912 100%);
+}
+
+.green_button:focus {
+  box-shadow: #03b912 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #03b912 0 -3px 0 inset;
+}
+
+.green_button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+    #5aff15 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.pink_button {
+  background-image: radial-gradient(100% 100% at 100% 0, #5f0a87, #a4508b 100%);
+}
+
+.pink_button:focus {
+  box-shadow: #a4508b 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #a4508b 0 -3px 0 inset;
+}
+
+.pink_button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+    #5f0a87 0 -3px 0 inset;
+  transform: translateY(-2px);
+}

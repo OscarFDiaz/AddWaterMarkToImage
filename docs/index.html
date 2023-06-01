@@ -18,8 +18,9 @@
 
     <script src="./scripts/index.js" type="text/javascript"></script>
 
-    <link rel="stylesheet" href="./styles/index.css" />
     <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/buttons.css" />
     <link rel="stylesheet" href="./styles/loader.css" />
 
   <body>
@@ -27,7 +28,7 @@
       <div id="loader"></div>
     </div>
 
-    <div class="sticky_div" id="sticky_div">
+    <nav class="sticky_div" id="sticky_div">
 
       <div class="mark_elements">
         <!-- CARGAR MARCA DE AGUA -->
@@ -84,11 +85,15 @@
         <!-- DESCARGAR IMAGENES -->
         <button id="button_download" class="button_download" disabled="disabled">Descargar Imagenes</button>
       </div>
-    </div>
+    </nav>
 
     <!-- MARCA DE AGUA -->
+    <h2 id="watermark--text">Marca de agua</h2>
     <div id="watermark" class="image_watermark"></div>
+
+
     <!-- IMAGENES QUE SE MUESTRAN -->
+    <h2 id="watermark--text_images"></h2>
     <div class="images" id="images"></div>
 
     <script>
@@ -97,12 +102,16 @@
         document.getElementById('input_images').click();
       }
 
+      /*
+      * Código para reajustar el padding que tiene el texto y no se oculte por el nav
+      */
+
       // Obtener el alto del div fijo
       let fixedDiv = document.getElementById("sticky_div");
       let fixedDivHeight = fixedDiv.offsetHeight;
 
       // Aplicar el alto del div fijo como padding al div debajo
-      let belowDiv = document.getElementById("watermark");
+      let belowDiv = document.getElementById("watermark--text");
       belowDiv.style.paddingTop = fixedDivHeight + 16 + "px";
 
       window.addEventListener("resize", function() {
@@ -116,6 +125,7 @@
         }
       });
 
+      // Carga la marca de agua
       loadWaterMark();
     </script>
   </body>

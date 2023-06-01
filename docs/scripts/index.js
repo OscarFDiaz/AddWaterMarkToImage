@@ -52,11 +52,13 @@ function imagesLoaded() {
   const button = document.getElementById('button_add');
   let disabled = button.getAttribute('disabled');
 
-  if (disabled) {
-    button.removeAttribute('disabled');
-  } else {
-    button.setAttribute('disabled', 'disabled');
-  }
+  disabled
+    ? button.removeAttribute('disabled')
+    : button.setAttribute('disabled', 'disabled');
+
+  // Añado el texto de imagenes
+  const imagesText = (document.getElementById('watermark--text_images').innerHTML =
+    'Imágenes');
 }
 
 function addWaterMark(inputImages) {
@@ -68,6 +70,7 @@ function addWaterMark(inputImages) {
 
   let pathWater = document.getElementById('input_watermark').value;
 
+  // Marca de agua por defecto
   if (pathWater == '' || pathWater == null) {
     pathWater = 'https://i.imgur.com/EtVXy17.png';
   }
@@ -82,11 +85,9 @@ function addWaterMark(inputImages) {
     const button = document.getElementById('button_download');
     let disabled = button.getAttribute('disabled');
 
-    if (disabled) {
-      button.removeAttribute('disabled');
-    } else {
-      button.setAttribute('disabled', 'disabled');
-    }
+    disabled
+      ? button.removeAttribute('disabled')
+      : button.setAttribute('disabled', 'disabled');
 
     // Añado el listener al botón para descargar las imagenes
     const boton = document.getElementById('button_download');
@@ -153,18 +154,14 @@ function resetGrids() {
   const button = document.getElementById('button_download');
   let disabled = button.getAttribute('disabled');
 
-  if (disabled) {
-    button.removeAttribute('disabled');
-  } else {
-    button.setAttribute('disabled', 'disabled');
-  }
+  disabled
+    ? button.removeAttribute('disabled')
+    : button.setAttribute('disabled', 'disabled');
 
   const button2 = document.getElementById('button_add');
   let disabled2 = button2.getAttribute('disabled');
 
-  if (disabled2) {
-    button2.removeAttribute('disabled');
-  } else {
-    button2.setAttribute('disabled', 'disabled');
-  }
+  disabled2
+    ? button2.removeAttribute('disabled')
+    : button2.setAttribute('disabled', 'disabled');
 }
